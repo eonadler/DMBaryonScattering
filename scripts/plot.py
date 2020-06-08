@@ -6,7 +6,7 @@ __author__ = "Alex Drlica-Wagner"
 __editor__ = "Ethan O. Nadler"
 
 import os
-from StringIO import StringIO
+from io import StringIO
 from collections import OrderedDict as odict
 import numpy as np
 import pylab as plt
@@ -107,7 +107,7 @@ def plot_limit_patch(data,zorder):
     setdefaults(kwargs,DEFAULTS)
 
     mass,limit = get_mass_limit(data)
-    patch = PathPatch(Path(zip(mass, limit)),
+    patch = PathPatch(Path(list(zip(mass, limit))),
                       edgecolor=kwargs['edgecolor'],
                       facecolor=kwargs['color'],
                       linestyle=kwargs['linestyle'],
